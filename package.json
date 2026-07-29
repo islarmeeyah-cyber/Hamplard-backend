@@ -1,16 +1,16 @@
 {
   "name": "hamplard-backend",
   "version": "0.1.0",
-  "description": "Hamplard — NestJS backend for the online vocational skills learning platform",
+  "description": "Hamplard \u2014 NestJS backend for the online vocational skills learning platform",
   "author": "Hamplard Team",
   "private": true,
   "license": "MIT",
   "scripts": {
-    "build": "nest build",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "build": "node init && nest build",
+    "start": "node init && nest start",
+    "start:dev": "node init && nest start --watch",
+    "start:debug": "node init && nest start --debug --watch",
+    "start:prod": "node init && node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -32,18 +32,20 @@
     "@prisma/client": "^5.6.0",
     "@stellar/stellar-sdk": "^12.0.0",
     "axios": "^1.6.0",
+    "bad-words": "^3.0.4",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "dotenv": "^8.2.0",
     "helmet": "^7.1.0",
     "multer": "^1.4.5-lts.1",
+    "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "pdfkit": "^0.15.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
-    "uuid": "^9.0.0",
-    "bad-words": "^3.0.4"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
@@ -74,11 +76,19 @@
     "@types/bad-words": "^3.0.0"
   },
   "jest": {
-    "moduleFileExtensions": ["js", "json", "ts"],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
-    "transform": { "^.+\\.(t|j)s$": "ts-jest" },
-    "collectCoverageFrom": ["**/*.(t|j)s"],
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
   }
